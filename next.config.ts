@@ -1,13 +1,17 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
-  output: 'export', 
-  distDir: 'out',   
+  output: 'export',
+  distDir: 'out',
   images: {
-    unoptimized: true, 
+    unoptimized: true,
   },
-  basePath: '/decap-cms-nextjs-demo',
   reactStrictMode: true,
+  
+  basePath: isProd ? '/decap-cms-nextjs-demo' : undefined,
+  trailingSlash: true, 
 };
 
 export default nextConfig;
