@@ -1,0 +1,1 @@
+# decap-cms-nextjs-demo
