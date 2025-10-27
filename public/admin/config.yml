@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: cmdn-linhnguyen/decap-cms-nextjs-demo
+  branch: main # Branch bạn sẽ push và deploy từ đó
+  base_url: https://api.github.com
+  auth_type: implicit
+
+publish_mode: simple # Cho demo, publish thẳng không cần workflow
+
+media_folder: "public/images" # Thư mục lưu ảnh upload
+public_folder: "/images" # Đường dẫn công khai cho ảnh
+
+collections:
+  - name: "posts"
+    label: "Bài viết"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Tạo slug từ tiêu đề
+    fields:
+      - {label: "Tiêu đề", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"} # Field để nhập slug
+      - {label: "Ngày", name: "date", widget: "datetime"}
+      - {label: "Ảnh đại diện (tùy chọn)", name: "thumbnail", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
